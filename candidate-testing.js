@@ -28,8 +28,8 @@ function askForName() {
 
 function askQuestion() {
   for (let i = 0; i < questions.length; i++) {
-  let answer = input.question(`${i+1}) ${questions[i]}`);
-  candidateAnswers.push(answer)
+  let answer = input.question(`${i+1}) ${questions[i]} `);
+  candidateAnswers.push(answer);
   console.log(`Your answer: ${answer} \nCorrect Answer: ${correctAnswers[i]}\n`);
   }
 }
@@ -50,7 +50,7 @@ for (let i = 0; i < candidateAnswers.length; i++){
   //console.log(candidateCorrectAnswers.length)
 
 
-  let grade = ((candidateCorrectAnswers.length)/(questions.length)*100)
+  let grade = ((candidateCorrectAnswers.length)/(questions.length)*100);
   
   //console.log(grade);
 
@@ -66,7 +66,7 @@ for (let i = 0; i < candidateAnswers.length; i++){
 function runProgram() {
   askForName();
   // TODO 1.1c: Ask for candidate's name //
-  console.log("Hello," + candidateName);
+  console.log(`Candidate Name: ${candidateName}\n`);
   askQuestion();
   gradeQuiz(this.candidateAnswers);
 }
