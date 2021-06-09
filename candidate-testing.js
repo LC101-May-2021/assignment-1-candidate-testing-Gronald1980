@@ -1,5 +1,7 @@
 const input = require('readline-sync');
-let candidateCorrectAnswers = [];
+//let candidateCorrectAnswers = [];
+
+let numCorrectAnswers = 0
 
 // TODO 2: modify your quiz app to ask 5 questions //
 
@@ -41,7 +43,7 @@ for (let i = 0; i < candidateAnswers.length; i++){
   //let candidateAnswer = candidateAnswers[i];
   //let correctAnswer = correctAnswers[i];
   if(candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
-    candidateCorrectAnswers.push(candidateAnswers[i]);
+    numCorrectAnswers = numCorrectAnswers + 1
     //console.log(candidateCorrectAnswers)
   }
   
@@ -50,18 +52,29 @@ for (let i = 0; i < candidateAnswers.length; i++){
   //console.log(candidateCorrectAnswers.length)
 
 
-  let grade = ((candidateCorrectAnswers.length)/(questions.length)*100);
+  let grade = (numCorrectAnswers/(questions.length)*100);
+
+  //let grade = (candidateCorrectAnswers.length)/(questions.length)*100);
   
   //console.log(grade);
 
   if (grade >= 80) {
-   console.log(`>>> Overall Grade: ${grade}% (${candidateCorrectAnswers.length} out of ${questions.length} correct) <<< \n>>> Status: PASSED <<<`);
-  } else {console.log(`>>> Overall Grade: ${grade}% (${candidateCorrectAnswers.length} out of ${questions.length} correct) <<< \n>>> Status: FAILED <<<`)
+   console.log(`>>> Overall Grade: ${grade}% (${numCorrectAnswers} out of ${questions.length} correct) <<< \n>>> Status: PASSED <<<`);
+  } else {console.log(`>>> Overall Grade: ${grade}% (${numCorrectAnswers} out of ${questions.length} correct) <<< \n>>> Status: FAILED <<<`)
   }
   
 
   return grade;
 }
+
+//if (grade >= 80) {
+   //console.log(`>>> Overall Grade: ${grade}% (${candidateCorrectAnswers.length} out of ${questions.length} correct) <<< \n>>> Status: PASSED <<<`);
+  //} else {console.log(`>>> Overall Grade: ${grade}% (${candidateCorrectAnswers.length} out of ${questions.length} correct) <<< \n>>> Status: FAILED <<<`)
+  //}
+  
+
+  //return grade;
+//}
 
 function runProgram() {
   askForName();
